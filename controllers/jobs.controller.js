@@ -1,7 +1,9 @@
 const db = require("../models/index");
 const {isEmpty} = require("lodash");
 const { jobs, user, applications, Sequelize } = db;
+const readXlsxFile = require('read-excel-file/node')
 const { Op } = Sequelize;
+
 const createJob = (req, res) => {
   jobs
     .create(req.body)
@@ -70,10 +72,20 @@ const filterJob = (req, res) => {
         });
     });
 };
-
+const filterQuestions = (req, res) => {
+  
+  readXlsxFile('E:/knockout/Job/jobClient/public/test.xlsx').then((rows) => {
+    res.status(200).send({ data: rows.filter(row => { return row[7] === req.params.role }) });
+        })
+        .catch((err) => {
+          console.log(err);
+          res.status(500).send(err);
+        });
+};
 module.exports = {
   createJob,
   getJob,
   updateJob,
   filterJob,
+  filterQuestions,
 };

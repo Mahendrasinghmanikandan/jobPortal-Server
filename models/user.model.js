@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER,
     resume: DataTypes.STRING,
     profilePic: DataTypes.STRING,
+    resume_marks: DataTypes.FLOAT,
   });
   
   return Users;
