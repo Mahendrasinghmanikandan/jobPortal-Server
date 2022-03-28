@@ -1,31 +1,46 @@
 const nodemailer = require("nodemailer");
-const sendMail = () => {
-  let transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
-    ignoreTLS: false,
-    secure: false,
-    auth: {
-      user: "whatfuture23@gmail.com",
-      pass: "@Future23",
-    },
-  });
-  message = {
-    from: "whatfuture23@gmail.com",
-    to: "mahendrasinghmani222@gmail.com",
-    subject: "Subject",
-    text: "Selected",
-  };
+let result = 90;
+const sendMail = async (datas) => {
+  console.log(datas, "jhjg");
+  try {
+    var transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: "whatfuture23@gmail.com",
+        pass: "@Future23",
+      },
+    });
 
-  transporter.sendMail(message, (err, info) => {
-    console.log("hjgjh");
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(info);
+    var mailOptions = {
+      from: {
+        name: datas.sender_email,
+      },
+      to: `${datas.recever_email}`,
+      subject: `${datas.heading}`,
+      html: `${datas.content}`,
+    };
+    console.log(mailOptions, "mailOptions");
+    await transporter.sendMail(mailOptions).then((info, error) => {
+      if (error) {
+        console.log(error);
+        console.log("info");
+        result = 0;
+      } else {
+        console.log("enter");
+        console.log("Email sent: " + info.response);
+        result = 1;
+      }
+    });
+    console.log(result, "result");
+    if (result !== 90) {
+      return result && result ? true : false;
     }
-  });
+  } catch (e) {
+    console.log(e);
+    return 0;
+  }
 };
+
 module.exports = {
   sendMail,
 };

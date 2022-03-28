@@ -15,12 +15,14 @@ module.exports = (sequelize, DataTypes) => {
     confirm: DataTypes.STRING,
     email: DataTypes.STRING,
     status: DataTypes.STRING,    
-    skills: DataTypes.STRING,
+    skill: DataTypes.JSON,
     phone: DataTypes.STRING,
     userId: DataTypes.INTEGER,
     resume: DataTypes.STRING,
     profilePic: DataTypes.STRING,
     resume_marks: DataTypes.FLOAT,
+    gender: DataTypes.STRING,
+    experience: DataTypes.STRING,
   });
   
   return Users;

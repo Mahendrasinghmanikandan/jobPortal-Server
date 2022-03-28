@@ -8,7 +8,7 @@ router.post('/create',Users.createUser)
 router.get('/',Users.getUser)
 router.post('/login',Users.authUser)
 router.put('/update',Users.updateProfileUser)
-router.get('/find-one/:id',Users.findOneProfileUser)
+router.get('/find-one/:id/:check',Users.findOneProfileUser)
 router.get('/get-candidate/:status',Users.findAllUsers)
 
 module.exports =router;

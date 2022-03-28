@@ -10,6 +10,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
     resume_mark: {
+      type: DataTypes.FLOAT,
+    },
+     testResults: {
       type: DataTypes.INTEGER,
     },
   });

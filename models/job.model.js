@@ -6,16 +6,31 @@ module.exports = (sequelize, DataTypes) => {
     skills: {
       type: DataTypes.STRING,
     },
-    experience: {
+    expFrom: {
       type: DataTypes.STRING,
     },
-    salary: {
+     expTo: {
       type: DataTypes.STRING,
+    },
+    salaryFrom: {
+      type: DataTypes.FLOAT,
+    },
+    salaryTo: {
+      type: DataTypes.FLOAT,
     },
     description: {
       type: DataTypes.STRING,
     },
      company_name: {
+      type: DataTypes.STRING,
+    },
+      salaryType: {
+      type: DataTypes.STRING,
+    },
+       testType: {
+      type: DataTypes.STRING,
+    },
+       jobLocation: {
       type: DataTypes.STRING,
     },
     userId: {

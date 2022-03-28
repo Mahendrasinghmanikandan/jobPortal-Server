@@ -69,6 +69,26 @@ db.user.belongsTo(db.jobs, {
 });
 
 
+db.user.hasMany(db.Skills, {
+  foreignKey: 'ref_id',
+
+});
+
+db.Skills.belongsTo(db.user, {
+  foreignKey: 'id',
+
+});
+
+db.jobs.hasMany(db.Skills, {
+  foreignKey: 'ref_id',
+
+});
+
+db.Skills.belongsTo(db.jobs, {
+  foreignKey: 'id',
+
+});
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
